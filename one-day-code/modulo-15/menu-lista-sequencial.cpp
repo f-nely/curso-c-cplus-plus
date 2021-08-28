@@ -4,11 +4,34 @@
 
 using namespace std;
 
+struct Pessoa
+{
+    string nome;
+    int rg;
+};
+
+void imprimeSequencial(Pessoa *ponteiroSequencial, int tamanhoLista);
+
 void limpaTela();
 
 int main()
 {
     int funcaoDesejada = 1;
+
+    Pessoa *ponteiroSequencial;
+
+    int tamanhoLista = 0;
+
+    Pessoa *exemploListaSequencial = new Pessoa[2];
+
+    exemploListaSequencial[0].nome = "John";
+    exemploListaSequencial[0].rg = 123;
+    exemploListaSequencial[1].nome = "Nikita";
+    exemploListaSequencial[1].rg = 321;
+
+    ponteiroSequencial = exemploListaSequencial;
+
+    imprimeSequencial(ponteiroSequencial, 2);
 
     while(funcaoDesejada < 10 && funcaoDesejada > 0) {
         cout << "Operações\n";
@@ -38,6 +61,13 @@ int main()
     }
 
     return 0;
+}
+
+void imprimeSequencial(Pessoa *ponteiroSequencial, int tamanhoLista)
+{
+    for(int i = 0; i < tamanhoLista; i++) {
+        cout << i << " - " << ponteiroSequencial[i].nome << ", " << ponteiroSequencial[i].rg << endl;
+    }
 }
 
 void limpaTela()
